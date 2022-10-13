@@ -44,6 +44,7 @@ class Requisition extends Entity
         'created' => true,
         'modified' => true,
         'due_date' => true,
+        'department_id' => true,
         'category_id' => true,
         'title' => true,
         'location' => true,

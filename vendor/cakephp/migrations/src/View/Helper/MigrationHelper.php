@@ -382,7 +382,7 @@ class MigrationHelper extends Helper
         if (isset($columnOptions['signed']) && $columnOptions['signed'] === true) {
             unset($columnOptions['signed']);
         }
-        if (empty($columnOptions['precision'])) {
+        if ($columnOptions['precision'] === null) {
             unset($columnOptions['precision']);
         } else {
             // due to Phinx using different naming for the precision and scale to CakePHP
@@ -475,6 +475,10 @@ class MigrationHelper extends Helper
 
             if (!in_array($option, $validOptions, true)) {
                 continue;
+            }
+
+            if ($option === 'default' && is_string($value)) {
+                $value = trim($value, "'");
             }
 
             $attributes[$option] = $value;

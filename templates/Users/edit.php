@@ -36,8 +36,7 @@
                 <div class="row" style="margin-top:15px">
                 <div class="col-md-4"><?= $this->Form->control('username', array('class' => 'form-control', "label" => "Nom d'utilisateur *", "placeholder" => "Nom d'utilisateur")); ?></div>
                 <div class="col-md-4"><?= $this->Form->control('password', array('class' => 'form-control', "type" => "text", "label" => "Mot de Passe *", "placeholder" => "Mot de Passe")); ?></div>
-                    
-    
+                <div class="col-md-4"><?= $this->Form->control('department_id', array('class' => 'form-control', "empty" => "-- Tous --", 'options' => $departments, "label" => "Département *", "multiple" => false, 'required' => true, 'style' => "height:46px")); ?></div>
                 </div> 
                 <hr> 
                 <div class="row">

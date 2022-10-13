@@ -66,6 +66,17 @@
                     <th><?= __('Catégorie') ?></th>
                     <td class="text-right"><?= $requisition->category->name ?></td>
                 </tr>
+                <?php if(!empty($requisition->department_id)) : ?>
+                    <tr>
+                        <th><?= __('Département') ?></th>
+                        <td class="text-right"><?= $requisition->department->name ?></td>
+                    </tr>
+                <?php else : ?>
+                    <tr>
+                        <th><?= __('Département') ?></th>
+                        <td class="text-right">-</td>
+                    </tr>
+                <?php endif; ?>
                 <tr>
                     <th><?= __('Titre') ?></th>
                     <td class="text-right"><?= h($requisition->title) ?></td>

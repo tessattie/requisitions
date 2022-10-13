@@ -50,7 +50,7 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        define('ROOT_DIREC', '/loto');
+        define('ROOT_DIREC', '/requisitions');
 
         date_default_timezone_set("America/New_York");
 

@@ -38,6 +38,17 @@
                     <th><?= __('Catégorie') ?></th>
                     <td class="text-right"><?= $requisition->category->name ?></td>
                 </tr>
+                <?php if(!empty($requisition->department_id)) : ?>
+                    <tr>
+                        <th><?= __('Département') ?></th>
+                        <td class="text-right"><?= $requisition->department->name ?></td>
+                    </tr>
+                <?php   else : ?>
+                    <tr>
+                        <th><?= __('Département') ?></th>
+                        <td class="text-right">-</td>
+                    </tr>
+                <?php   endif; ?>
                 <tr>
                     <th><?= __('Titre') ?></th>
                     <td class="text-right"><?= h($requisition->title) ?></td>
@@ -67,13 +78,13 @@
                     <?php if($requisition->status == 1) : ?>
                         <td class="text-right"><span class="label label-info"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 2) : ?>
-                        <td class="text-right"><span class="label label-danger"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-warning"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 3) : ?>
                         <td class="text-right"><span class="label label-primary"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 4) : ?>
                         <td class="text-right"><span class="label label-success"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php else : ?>
-                        <td class="text-right"><span class="label label-warning"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-danger"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php endif; ?>
                 </tr>
                 <tr>
