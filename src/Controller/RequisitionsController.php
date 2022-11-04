@@ -18,8 +18,11 @@ class RequisitionsController extends AppController
      */
     public function index()
     {
-        
-        $requisitions = $this->Requisitions->find("all", array("order" => array("due_date ASC")))->contain(['Users', 'Categories']);
+        $requisitions = $this->Requisitions->find("all", array("order" => array("due_date ASC")))->contain(['Users', 'Categories', 'Departments']);
+
+        if(!empty($this->Auth->user()['department_id'])){
+          $requisitions->where(['Requisitions.department_id' => $this->Auth->user()['department_id']]);
+        }
 
         $this->set(compact('requisitions'));
     }
@@ -34,8 +37,14 @@ class RequisitionsController extends AppController
     public function view($id = null)
     {
         $requisition = $this->Requisitions->get($id, [
-            'contain' => ['Categories', 'Documents', 'Notes' => ['Users'], 'Users'],
+            'contain' => ['Categories', 'Documents', 'Notes' => ['Users'], 'Users', 'Departments'],
         ]);
+
+        if(!empty($this->Auth->user()['department_id'])){
+            if($this->Auth->user()['department_id'] != $requisition->department_id){
+                return $this->redirect($this->referer());
+            }
+        }
 
         $this->loadModel("Notes"); 
         $note = $this->Notes->newEmptyEntity();
@@ -56,6 +65,10 @@ class RequisitionsController extends AppController
         if ($this->request->is('post')) {
             $requisition = $this->Requisitions->patchEntity($requisition, $this->request->getData());
             $requisition->user_id = $this->Auth->user()['id'];
+
+            if(!empty($this->Auth->user()['department_id'])){
+                $requisition->department_id = $this->Auth->user()['department_id'];
+            }
             if ($this->Requisitions->save($requisition)) {
                 $this->Flash->success(__('The requisition has been saved.'));
 
@@ -64,7 +77,8 @@ class RequisitionsController extends AppController
             $this->Flash->error(__('The requisition could not be saved. Please, try again.'));
         }
         $categories = $this->Requisitions->Categories->find('list', ['limit' => 200])->all();
-        $this->set(compact('requisition', 'categories'));
+        $departments = $this->Requisitions->Departments->find('list');
+        $this->set(compact('requisition', 'categories', 'departments'));
     }
 
     /**
@@ -79,6 +93,12 @@ class RequisitionsController extends AppController
         $requisition = $this->Requisitions->get($id, [
             'contain' => ['Documents'],
         ]);
+
+        if(!empty($this->Auth->user()['department_id'])){
+            if($this->Auth->user()['department_id'] != $requisition->department_id){
+                return $this->redirect($this->referer());
+            }
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
             $requisition = $this->Requisitions->patchEntity($requisition, $this->request->getData());
             if ($this->Requisitions->save($requisition)) {
@@ -91,7 +111,8 @@ class RequisitionsController extends AppController
         $categories = $this->Requisitions->Categories->find('list', ['order' => array("name ASC")])->all();
         $this->loadModel("Documents");
         $document = $this->Documents->newEmptyEntity();
-        $this->set(compact('requisition', 'categories', 'document'));
+        $departments = $this->Requisitions->Departments->find('list');
+        $this->set(compact('requisition', 'categories', 'document', 'departments'));
     }
 
     public function document(){
@@ -142,7 +163,12 @@ class RequisitionsController extends AppController
     public function dashboard(){
         $this->viewBuilder()->setLayout('dashboard');
 
-        $requisitions = $this->Requisitions->find("all")->contain(['Categories', 'Users', 'Notes' => ['Users'], 'Documents']); 
+        $requisitions = $this->Requisitions->find("all")->contain(['Categories', 'Users', 'Notes' => ['Users'], 'Documents', 'Departments']); 
+
+        if(!empty($this->Auth->user()['department_id'])){
+            $requisitions->where(['Requisitions.department_id' => $this->Auth->user()['department_id']]);
+        }
+
         $this->set(compact('requisitions'));
 
     }

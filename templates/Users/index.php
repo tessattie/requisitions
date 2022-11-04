@@ -26,6 +26,7 @@
                     <th>Nom</th>
                     <th class="text-center">Nom d'Utilisateur</th>
                     <th class="text-center">Rôle</th>
+                    <th class="text-center">Département</th>
                     <th class="text-center">Statut</th>
                     <th class="text-center"></th>
                 </thead>
@@ -35,6 +36,11 @@
                     <td><?= $user->name ?></td>
                     <td class="text-center"><?= $user->username ?></td>
                     <td class="text-center"><?= $user->role->name ?></td>
+                    <?php if(!empty($user->department_id)) : ?>
+                        <td class="text-center"><?= $user->department->name ?></td>
+                    <?php else : ?>
+                        <td class="text-center">Tous</td>
+                    <?php endif; ?>
                     <?php if($user->status == 1) : ?>
                         <td class="text-center">  <span class="label label-success"> <?= $status[$user->status] ?></span></td>
                     <?php else : ?>

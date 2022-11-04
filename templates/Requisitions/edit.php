@@ -30,11 +30,12 @@ $statuses = array(3 => "Validé", 4 => "Décaissé");
                 </div>
             <div class="panel-body articles-container">  
                     <div class="row">
-                    <div class="col-md-4"><?= $this->Form->control('requisition_number', array('class' => 'form-control', "label" => "Numéro de Réquisition *", "placeholder" => "Numéro de Réquisition")); ?>
+                    <div class="col-md-3"><?= $this->Form->control('requisition_number', array('class' => 'form-control', "label" => "Numéro de Réquisition *", "placeholder" => "Numéro de Réquisition")); ?>
                     </div>
-                    <div class="col-md-4"><?= $this->Form->control('category_id', array('class' => 'form-control', "empty" => "-- Catégorie --", "label" => "Catégorie *", 'options' => $categories)); ?>
+                    <div class="col-md-3"><?= $this->Form->control('category_id', array('class' => 'form-control', "empty" => "-- Catégorie --", "label" => "Catégorie *", 'options' => $categories)); ?>
                     </div> 
-                    <div class="col-md-4"><?= $this->Form->control('title', array('class' => 'form-control', "label" => "Titre *", "placeholder" => "Titre")); ?>
+                    <div class="col-md-3"><?= $this->Form->control('department_id', array('class' => 'form-control', "empty" => "-- Tous --", 'options' => $departments, "label" => "Département *", "multiple" => false, 'required' => true, 'style' => "height:46px")); ?></div>
+                    <div class="col-md-3"><?= $this->Form->control('title', array('class' => 'form-control', "label" => "Titre *", "placeholder" => "Titre")); ?>
                     </div>
                                      
                 </div>

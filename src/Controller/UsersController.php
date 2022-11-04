@@ -40,7 +40,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->Users->find("all", array())->contain(['Roles']);
+        $users = $this->Users->find("all", array())->contain(['Roles', 'Departments']);
         $this->set(compact('users'));
     }
 
@@ -73,8 +73,9 @@ class UsersController extends AppController
             
         }
         $roles = $this->Users->Roles->find('list');
+        $departments = $this->Users->Departments->find('list');
         
-        $this->set(compact('user', 'roles'));
+        $this->set(compact('user', 'roles', 'departments'));
     }
 
 
@@ -103,7 +104,8 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $roles = $this->Users->Roles->find('list');
-        $this->set(compact('user', 'roles'));
+        $departments = $this->Users->Departments->find('list');
+        $this->set(compact('user', 'roles', 'departments'));
     }
 
 

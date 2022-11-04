@@ -27,6 +27,7 @@
                 <thead> 
                     <th>#</th>
                     <th class="text-center">Catégorie</th>
+                    <th class="text-center">Département</th>
                     <th class="text-center">Créé par</th>
                     <th class="text-center">Titre</th>
                     <th class="text-center">Demandé Par</th>
@@ -42,6 +43,11 @@
                 <tr>
                     <td><a href="<?= ROOT_DIREC ?>/requisitions/view/<?= $requisition->id ?>"><?= $requisition->requisition_number ?></a></td>
                     <td class="text-center"><?= $requisition->category->name ?></td>
+                    <?php if(!empty($requisition->department_id)) : ?>
+                        <td class="text-center"><?= $requisition->department->name ?></td>
+                    <?php   else : ?>
+                        <td class="text-center">-</td>
+                    <?php   endif; ?>
                     <td class="text-center"><?= $requisition->user->name ?></td>
                     <td class="text-center"><?= $requisition->title ?></td>
                     <td class="text-center"><?= $requisition->full_name ?></td>
@@ -50,13 +56,13 @@
                     <?php if($requisition->status == 1) : ?>
                         <td class="text-center"><span class="label label-info"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 2) : ?>
-                        <td class="text-center"><span class="label label-danger"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-center"><span class="label label-warning"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 3) : ?>
                         <td class="text-center"><span class="label label-primary"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php elseif($requisition->status == 4) : ?>
                         <td class="text-center"><span class="label label-success"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php else : ?>
-                        <td class="text-center"><span class="label label-warning"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-center"><span class="label label-danger"> <?= $requisition_status[$requisition->status] ?></span></td>
                     <?php endif; ?>
                     <?php if($auths[64]) : ?>
 

@@ -72,6 +72,11 @@
             <?php  if($auths[67] || $auths[68]) : ?>
             <li class="<?= ($this->request->getParam('controller') == 'Categories') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/categories"><em class="fa fa-bars">&nbsp;</em> Catégories</a></li>
             <?php endif; ?>
+
+            <?php  if($auths[74] || $auths[75]) : ?>
+            <li class="<?= ($this->request->getParam('controller') == 'Departments') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/departments"><em class="fa fa-list">&nbsp;</em> Départements</a></li>
+            <?php endif; ?>
+
             <?php if($auths[71]) : ?>
             <li class="parent <?= ($this->request->getParam('controller') == 'Riders' ||$this->request->getParam('controller') == 'Authorizations' || $this->request->getParam('controller') == 'Users' || $this->request->getParam('controller') == 'Roles' || $this->request->getParam('controller') == 'Cards') ? 'active' : '' ?>"><a data-toggle="collapse" href="#sub-item-2">
                 <em class="fa fa-gear">&nbsp;</em> Paramètres <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>

@@ -54,6 +54,11 @@ class RequisitionsTable extends Table
             'joinType' => 'INNER',
         ]);
 
+        $this->belongsTo('Departments', [
+            'foreignKey' => 'department_id',
+            'joinType' => 'LEFT',
+        ]);
+
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',

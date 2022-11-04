@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
-$types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => "Utilisateurs");
+$types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => "Utilisateurs", 5 => 'Départements');
 ?>
 <div class="row" style="margin-bottom:15px">
     <ol class="breadcrumb">

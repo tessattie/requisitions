@@ -53,6 +53,10 @@ class UsersTable extends Table
             'foreignKey' => 'role_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('Departments', [
+            'foreignKey' => 'department_id',
+            'joinType' => 'LEFT',
+        ]);
         $this->hasMany('Documents', [
             'foreignKey' => 'user_id',
         ]);
