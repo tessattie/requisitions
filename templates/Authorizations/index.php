@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
-$types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => "Utilisateurs", 5 => 'Départements');
+$types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => "Utilisateurs", 5 => 'Départements', 6 => "Budgets");
 ?>
 <div class="row" style="margin-bottom:15px">
     <ol class="breadcrumb">
@@ -49,7 +49,7 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
                     <?php $type = $authorization->type; ?>
                 <?php endif; ?>
                 <tr>
-                    <td><?= $authorization->name ?> - <?= $authorization->id ?></td>
+                    <td><?= $authorization->name ?></td>
                     <td class="text-center">
                         <?php $condition = false; if(!empty($roles_authorizations)) : ?>
                             <?php  

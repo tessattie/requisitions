@@ -18,7 +18,9 @@ class RequisitionsController extends AppController
      */
     public function index()
     {
-        $requisitions = $this->Requisitions->find("all", array("order" => array("due_date ASC")))->contain(['Users', 'Categories', 'Departments']);
+        $from = $this->session->read("periode_year")."-".$this->session->read("periode_month")."-01"; 
+        $to = date("Y-m-t", strtotime($from));
+        $requisitions = $this->Requisitions->find("all", array("conditions" => array("due_date >=" => $from, "due_date <=" => $to), "order" => array("due_date ASC")))->contain(['Users', 'Categories', 'Departments']);
 
         if(!empty($this->Auth->user()['department_id'])){
           $requisitions->where(['Requisitions.department_id' => $this->Auth->user()['department_id']]);
@@ -163,7 +165,10 @@ class RequisitionsController extends AppController
     public function dashboard(){
         $this->viewBuilder()->setLayout('dashboard');
 
-        $requisitions = $this->Requisitions->find("all")->contain(['Categories', 'Users', 'Notes' => ['Users'], 'Documents', 'Departments']); 
+        $from = $this->session->read("periode_year")."-".$this->session->read("periode_month")."-01"; 
+        $to = date("Y-m-t", strtotime($from));
+
+        $requisitions = $this->Requisitions->find("all", array("conditions" => array("due_date >=" => $from, "due_date <=" => $to)))->contain(['Categories', 'Users', 'Notes' => ['Users'], 'Documents', 'Departments']); 
 
         if(!empty($this->Auth->user()['department_id'])){
             $requisitions->where(['Requisitions.department_id' => $this->Auth->user()['department_id']]);

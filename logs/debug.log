@@ -5549,3 +5549,34 @@ Cake\Http\Runner::run() C:\wamp\www\loto\vendor\cakephp\cakephp\src\Http\Runner.
 Cake\Http\Server::run() C:\wamp\www\loto\vendor\cakephp\cakephp\src\Http\Server.php, line 90
 [main] C:\wamp\www\loto\webroot\index.php, line 40
 
+2022-11-07 15:00:14 notice: Undefined property: AuthorizationsController::$Budjets in C:\wamp\www\requisitions2\src\Controller\AppController.php on line 108
+Request URL: /authorizations/index/1
+Referer URL: http://localhost/requisitions2/authorizations
+Trace:
+Cake\Controller\Controller::__get() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Controller\Controller.php, line 337
+App\Controller\AppController::getBudjetProgress() C:\wamp\www\requisitions2\src\Controller\AppController.php, line 108
+App\Controller\AppController::beforeFilter() C:\wamp\www\requisitions2\src\Controller\AppController.php, line 86
+Cake\Event\EventManager::_callListener() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Event\EventManager.php, line 309
+Cake\Event\EventManager::dispatch() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Event\EventManager.php, line 286
+Cake\Controller\Controller::dispatchEvent() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php, line 92
+Cake\Controller\Controller::startupProcess() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Controller\Controller.php, line 644
+Cake\Controller\ControllerFactory::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php, line 129
+Cake\Controller\ControllerFactory::invoke() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php, line 114
+Cake\Http\BaseApplication::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\BaseApplication.php, line 320
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 77
+Cake\Http\Middleware\CsrfProtectionMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Middleware\CsrfProtectionMiddleware.php, line 174
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+Cake\Http\Middleware\BodyParserMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php, line 157
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+Cake\Routing\Middleware\RoutingMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php, line 186
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+Cake\Routing\Middleware\AssetMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php, line 68
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+Cake\Error\Middleware\ErrorHandlerMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php, line 131
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+DebugKit\Middleware\DebugKitMiddleware::process() C:\wamp\www\requisitions2\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php, line 60
+Cake\Http\Runner::handle() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 73
+Cake\Http\Runner::run() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Runner.php, line 58
+Cake\Http\Server::run() C:\wamp\www\requisitions2\vendor\cakephp\cakephp\src\Http\Server.php, line 90
+[main] C:\wamp\www\requisitions2\webroot\index.php, line 40
+

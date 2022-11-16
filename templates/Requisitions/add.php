@@ -54,13 +54,22 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-4"><?= $this->Form->control('due_date', array('class' => 'form-control', "label" => "Date Cible de Décaissement *", "type" => "date")); ?>
+                    <div class="col-md-4"><?= $this->Form->control('due_date', array('class' => 'form-control', "label" => "Date Cible de Décaissement *", "type" => "date")); ?></div>
+                    <div class="col-md-3"><?= $this->Form->control('daily_rate', array('class' => 'form-control', "label" => "Taux du Jour *", "placeholder" => "Taux du Jour")); ?>
                     </div>
                                      
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-12"><?= $this->Form->button(__('Ajouter'), array('class'=>'btn btn-success', "style"=>"margin-top:25px;float:right")) ?></div>
+                    <div class="col-md-4">
+                        <?php  if($auths[76]) : ?>
+                        <label id="department_name"> Department</label> <small style="color:#30a5ff;font-weight:bold;float:right">HTG: <span id="percent_htg">0</span>%</small><br>
+                        <div class="progress" style="height:20px">
+                          <div class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar_htg"><small id="bvalues_htg"></small></div>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                    <div class="col-md-8"><?= $this->Form->button(__('Ajouter'), array('class'=>'btn btn-success', "style"=>"margin-top:29px;float:right")) ?></div>
                 </div>  
 
 
@@ -79,3 +88,21 @@
       
     }
 </style>
+<?php  if($auths[76]) : ?>
+<script type="text/javascript">
+    console.log(budjet_values)
+    $(document).ready(function(){
+        $("#department-id").change(function(){
+            var department_id = $(this).val()
+            var budjet = budjet_values[department_id]; 
+
+            $("#department_name").text(budjet.name)
+            $("#percent_htg").text(budjet.percent_htg)
+
+            $("#bvalues_htg").text(budjet.total_htg+"/"+budjet.budjet.htg_amount)
+
+            $("#progressbar_htg").css("width", budjet.percent_htg+"%")
+        })
+    })
+</script>
+<?php endif; ?>

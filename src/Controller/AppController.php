@@ -50,7 +50,7 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        define('ROOT_DIREC', '/requisitions');
+        define('ROOT_DIREC', '/requisitions2');
 
         date_default_timezone_set("America/New_York");
 
@@ -83,18 +83,83 @@ class AppController extends Controller
             return null;
         }
         if($this->Auth->user()){
+            $this->setbudjets();
+            $this->set("budjet_progress", $this->getBudjetProgress());
             $this->from = $this->session->read("from")." 00:00:00";
             $this->to = $this->session->read("to")." 23:59:59";
             $this->initializeSessionVariables();
             $this->set('rates', array(1 => "HTG", 2 => "USD"));
-            $this->set("filterfrom", $this->session->read("from"));
-            $this->set("filterto", $this->session->read("to"));
+            $this->set("periode_year", $this->session->read("periode_year"));
+            $this->set("periode_month", $this->session->read("periode_month"));
             $this->set('user_connected', $this->Auth->user());
             $this->set('status', $this->status);
             $this->set('requisition_status', $this->requisition_status);
             $this->set("auths", $this->getAuthorizations());
             // debug($this->Auth->user()); die();
         }
+    }
+
+    private function setbudjets(){
+        $periods = []; 
+        $today = date("Y-m-d"); 
+
+        $this->loadModel("Departments"); $this->loadModel("Budjets");
+
+        $periods[0] = array("year" => date('Y', strtotime($today)), 'month' => date("m", strtotime($today)));
+        $periods[1] = array("year" => date('Y', strtotime("+1 month ".$today)), 'month' => date("m", strtotime("+1 month ". $today)));
+        $periods[2] = array("year" => date('Y', strtotime("+2 month ".$today)), 'month' => date("m", strtotime("+2 month ". $today)));
+
+        $departments = $this->Departments->find("all"); 
+
+        foreach($periods as $key => $period){
+            foreach($departments as $department){
+                $exists = $this->Budjets->find("all", array("conditions" => array("department_id" => $department->id, 'year' => $period['year'], 'month' => $period['month'])));
+                if($exists->count() == 0){
+                    $budjet = $this->Budjets->newEmptyEntity(); 
+                    $budjet->department_id = $department->id; 
+                    $budjet->year = $period['year']; 
+                    $budjet->month = $period['month']; 
+                    $budjet->htg_amount = 1; 
+                    $budjet->usd_amount = 1; 
+                    $this->Budjets->save($budjet); 
+                }
+            }
+        }
+    }
+
+    private function getBudjetProgress(){
+        $this->loadModel("Departments"); 
+        $departments =  $this->Departments->find("all", array("order" => array("name ASC")));
+
+        foreach($departments as $department){
+            $department->budjet = $this->Departments->Budjets->find("all", array("conditions" => array("department_id" => $department->id, "year" => date("Y"), "month" => date("m"))))->first();
+
+            $requisitions = $this->Departments->Requisitions->find("all", array("conditions" => array("department_id" => $department->id, 'due_date >=' => date("Y-m-01"), 'due_date <=' => date("Y-m-t"))))->contain(['Categories']);
+
+            $htg = 0; 
+
+            foreach($requisitions as $requisition){
+                if($requisition->rate == 1 && $requisition->status == 4){
+                    $htg = $htg + $requisition->amount_authorized; 
+                }
+
+                if($requisition->rate == 2 && $requisition->status == 4){
+                    $htg = $htg + $requisition->amount_authorized*$requisition->daily_rate; 
+                }
+            }
+
+            $department->total_htg = $htg; 
+            if(!empty($department->budjet)){
+                $department->percent_htg = $department->total_htg*100/$department->budjet->htg_amount; 
+           }else{
+                $department->percent_htg = 0;
+           }
+            
+        }
+
+        // debug($departments->toArray()); die();
+
+        return $departments;
     }
 
     private function getAuthorizations(){
@@ -121,32 +186,28 @@ class AppController extends Controller
 
 
     private function initializeSessionVariables(){
-        if(empty($this->session->read("from"))){
-            $this->session->write("from", date("Y-m-d"));
+        if(empty($this->session->read("periode_month"))){
+            $this->session->write("periode_month", date("m"));
         }
 
-        if(empty($this->session->read("to"))){
-            $this->session->write("to", date("Y-m-d"));
-        }
-
-        if(empty($this->session->read("filter_country"))){
-            $this->session->write("filter_country", '');
+        if(empty($this->session->read("periode_year"))){
+            $this->session->write("periode_year", date("Y"));
         }
     }
 
     public function updateSessionVariables(){
         if ($this->request->is(['put', 'patch', 'post'])){
-            if(!empty($this->request->getData()["from"])){
-                $this->session->write("from", $this->request->getData()["from"]);
+            if(!empty($this->request->getData()["periode_month"])){
+                $this->session->write("periode_month", $this->request->getData()["periode_month"]);
             }
 
-            if(!empty($this->request->getData()["to"])){
-                $this->session->write("to", $this->request->getData()["to"]);
+            if(!empty($this->request->getData()["periode_year"])){
+                $this->session->write("periode_year", $this->request->getData()["periode_year"]);
             }
 
-            $this->session->write("filter_country", $this->request->getData()["filter_country"]);
         }
 
         return $this->redirect($this->referer());
     }
+
 }

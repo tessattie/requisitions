@@ -40,6 +40,16 @@ $cakeDescription = 'Loto Lakay S.A.';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+    <?php 
+        $js_budjets = array();
+        foreach($budjet_progress as $bup){
+            $js_budjets[$bup->id] = $bup;
+        } 
+        ?>
+        <script type="text/javascript">
+            var budjet_values = <?= json_encode($js_budjets) ?>;
+        </script>
 </head>
 <body>
     <?php echo $this->element('admin'); ?>

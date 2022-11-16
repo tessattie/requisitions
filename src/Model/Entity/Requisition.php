@@ -57,6 +57,7 @@ class Requisition extends Entity
         'status' => true,
         'category' => true,
         'documents' => true,
+        'daily_rate' => true,
         'notes' => true,
     ];
 }

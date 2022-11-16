@@ -63,19 +63,27 @@ $statuses = array(3 => "Validé", 4 => "Décaissé");
                     </div>
                     <div class="col-md-1"><?= $this->Form->control('rate', array('class' => 'form-control',  "label" => ' ', 'options' => $rates, "style" => "margin-top:4px")); ?>
                     </div>
+                    <div class="col-md-2"><?= $this->Form->control('daily_rate', array('class' => 'form-control', "label" => "Taux du Jour *", "placeholder" => "Taux du Jour")); ?>
+                    </div>
                     <?php if($auths[72]) : ?> 
-                    <div class="col-md-4"><?= $this->Form->control('status', array('class' => 'form-control', "empty" => "-- Statut --", "label" => "Statut *", 'options' => $requisition_status)); ?>
+                    <div class="col-md-3"><?= $this->Form->control('status', array('class' => 'form-control', "empty" => "-- Statut --", "label" => "Statut *", 'options' => $requisition_status)); ?>
                     </div> 
                 <?php  endif; ?>
                                      
                 </div>
-                
                 <hr>
                 <div class="row">
-                    <div class="col-md-12"><?= $this->Form->button(__('Sauvegarder'), array('class'=>'btn btn-success', "style"=>"margin-top:25px;float:right")) ?></div>
-                </div> 
+                    <div class="col-md-4">
+                        <?php  if($auths[76]) : ?>
+                        <label id="department_name"> Department</label> <small style="color:#30a5ff;font-weight:bold;float:right"><span id="percent_htg">0</span>%</small><br>
+                        <div class="progress" style="height:20px">
+                          <div class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar_htg"><small id="bvalues_htg"></small></div>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                    <div class="col-md-8"><?= $this->Form->button(__('Sauvegarder'), array('class'=>'btn btn-success', "style"=>"margin-top:29px;float:right")) ?></div>
+                </div>  
                 </div>
-                
             </div>
             <?= $this->Form->end() ?>
                 <?php if($auths[70]) : ?>  
@@ -128,4 +136,35 @@ $statuses = array(3 => "Validé", 4 => "Décaissé");
     </div>
 
 </div>
+<?php  if($auths[76]) : ?>
+<script type="text/javascript">
+    var department_id = <?= $requisition->department_id ?>
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#department-id").change(function(){
+            var department_id = $(this).val()
+            var budjet = budjet_values[department_id]; 
 
+            $("#department_name").text(budjet.name)
+            $("#percent_htg").text(budjet.percent_htg)
+
+            $("#bvalues_htg").text(budjet.total_htg+"/"+budjet.budjet.htg_amount)
+
+            $("#progressbar_htg").css("width", budjet.percent_htg+"%")
+
+
+        })
+
+
+        var budjet = budjet_values[department_id]; 
+
+            $("#department_name").text(budjet.name)
+            $("#percent_htg").text(budjet.percent_htg)
+
+            $("#bvalues_htg").text(budjet.total_htg+"/"+budjet.budjet.htg_amount)
+
+            $("#progressbar_htg").css("width", budjet.percent_htg+"%")
+    })
+</script>
+<?php   endif; ?>

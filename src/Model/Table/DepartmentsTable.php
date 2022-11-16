@@ -46,6 +46,10 @@ class DepartmentsTable extends Table
             'foreignKey' => 'department_id',
         ]);
 
+        $this->hasMany('Budjets', [
+            'foreignKey' => 'department_id',
+        ]);
+
         $this->hasMany('Requisitions', [
             'foreignKey' => 'department_id',
         ]);
