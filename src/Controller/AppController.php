@@ -18,6 +18,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\EventInterface;
+use Cake\I18n\I18n;
 
 
 /**
@@ -31,9 +32,9 @@ use Cake\Event\EventInterface;
 class AppController extends Controller
 {
 
-    public $status = array(0 => "Inactive", 1 => "Active");
+    public $status = array();
 
-    public $requisition_status = array(1 => "En Révision", 2 => "En attente", 3 => "Validé", 4 => "Décaissé", 5 => "Refusé");
+    public $requisition_status = array();
 
     protected $authorizations = [];
 
@@ -67,6 +68,8 @@ class AppController extends Controller
                 'action' => 'login']
         ]);
 
+        I18n::setLocale('fr');
+
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
@@ -76,6 +79,11 @@ class AppController extends Controller
 
     public function beforeFilter(EventInterface $event){
 
+        $this->requisition_status = array(1 => __("En Révision"), 2 => __("En attente"), 3 => __("Validé"), 4 => __("Décaissé"), 5 => __("Refusé"));
+        
+
+        $this->status = array(0 => __("Inactif"), 1 => __("Actif"));
+
         $this->session = $this->getRequest()->getSession();
         
         if (!$this->Auth->user()) {
@@ -83,12 +91,16 @@ class AppController extends Controller
             return null;
         }
         if($this->Auth->user()){
+            $this->loadModel("Users");
+            $user = $this->Users->get($this->Auth->user()['id']);
+            I18n::setLocale($user->language);
             $this->setbudjets();
+            $this->initializeSessionVariables();
             $this->set("budjet_progress", $this->getBudjetProgress());
             $this->from = $this->session->read("from")." 00:00:00";
             $this->to = $this->session->read("to")." 23:59:59";
-            $this->initializeSessionVariables();
-            $this->set('rates', array(1 => "HTG", 2 => "USD"));
+            
+            $this->set('rates', array(1 => __("HTG"), 2 => __("USD")));
             $this->set("periode_year", $this->session->read("periode_year"));
             $this->set("periode_month", $this->session->read("periode_month"));
             $this->set('user_connected', $this->Auth->user());
@@ -130,11 +142,12 @@ class AppController extends Controller
     private function getBudjetProgress(){
         $this->loadModel("Departments"); 
         $departments =  $this->Departments->find("all", array("order" => array("name ASC")));
-
+        $year = $this->session->read("periode_year");
+        $month = $this->session->read("periode_month");
         foreach($departments as $department){
-            $department->budjet = $this->Departments->Budjets->find("all", array("conditions" => array("department_id" => $department->id, "year" => date("Y"), "month" => date("m"))))->first();
+            $department->budjet = $this->Departments->Budjets->find("all", array("conditions" => array("department_id" => $department->id, "year" => $year, "month" => $month)))->first();
 
-            $requisitions = $this->Departments->Requisitions->find("all", array("conditions" => array("department_id" => $department->id, 'due_date >=' => date("Y-m-01"), 'due_date <=' => date("Y-m-t"))))->contain(['Categories']);
+            $requisitions = $this->Departments->Requisitions->find("all", array("conditions" => array("department_id" => $department->id, 'due_date >=' => date($year."-".$month."-01"), 'due_date <=' => date($year."-".$month."-t"))))->contain(['Categories']);
 
             $htg = 0; 
 

@@ -121,21 +121,29 @@ class UsersController extends AppController
         // if(!$this->authorize()){
         //     return $this->redirect(['action' => 'authorization']);
         // }
-        $user = $this->Users->get($this->Auth->user()['id'], ['contain' => ['Tenants']
-        ]);
+        $user = $this->Users->get($this->Auth->user()['id']);
 
         if ($this->request->is(['patch', 'post', 'put'])){
-            if($this->request->getData()['confirm_new_password'] == $this->request->getData()['new_password']){
-                if((new DefaultPasswordHasher)->check($this->request->getData()['old_password'], $user->password)){
-                    $user->password = $this->request->getData()['confirm_new_password'];
-                    $this->Users->save($user); 
-                    $this->Flash->success(__('Your password has been reset. Please log in with your new password to continue.'));
-                    return $this->redirect($this->Auth->logout());
+            if(!empty($this->request->getData()['confirm_new_password'])){
+                if($this->request->getData()['confirm_new_password'] == $this->request->getData()['new_password']){
+                    if((new DefaultPasswordHasher)->check($this->request->getData()['old_password'], $user->password)){
+                        $user->password = $this->request->getData()['confirm_new_password'];
+                        $this->Users->save($user); 
+                        $this->Flash->success(__('Your password has been reset. Please log in with your new password to continue.'));
+                        return $this->redirect($this->Auth->logout());
+                    }else{
+                        $this->Flash->error(__('Current password is incorrect'));
+                    }
                 }else{
-                    $this->Flash->error(__('Current password is incorrect'));
+                    $this->Flash->error(__('Both the new password and password confirmation must be the same.'));
                 }
-            }else{
-                $this->Flash->error(__('Both the new password and password confirmation must be the same.'));
+            }
+
+            if(!empty($this->request->getData()['language'])){
+                $user->language = $this->request->getData()['language'];
+                $this->Users->save($user); 
+
+                return $this->redirect(['action' => "view"]);
             }
         }
 

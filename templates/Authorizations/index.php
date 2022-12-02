@@ -7,10 +7,10 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
 ?>
 <div class="row" style="margin-bottom:15px">
     <ol class="breadcrumb">
-        <li><a href="<?= ROOT_DIREC ?>/policies/dashboard">
+        <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Authorizations</li>
+        <li class="active"><?= __("Autorisations") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
@@ -25,7 +25,7 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
                         <?php else : ?>
                             <tr>
                         <?php endif; ?>
-                    <td><a style="color:black" href="<?= ROOT_DIREC ?>/authorizations/index/<?= $role->id ?>"><?= $role->name ?></a></td>
+                    <td><a style="color:black" href="<?= ROOT_DIREC ?>/authorizations/index/<?= $role->id ?>"><?= __($role->name) ?></a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -34,7 +34,7 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
         <div class="col-md-9">
             <div class="panel panel-default articles">
         <div class="panel-heading">
-            Authorizations
+            <?= __("Autorisations") ?>
         </div>
     <div class="panel-body articles-container"  style="height:450px;overflow-y:scroll">
         <?php if(!empty($role_id)) : ?>
@@ -45,11 +45,11 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
             <tbody> 
             <?php $type =0; foreach($authorizations as $authorization) : ?>
                 <?php if($type != $authorization->type) : ?>
-                    <tr style="background:#f2f2f2"><td colspan="2"><?= $types[$authorization->type] ?></td></tr>
+                    <tr style="background:#f2f2f2"><td colspan="2"><?= __($types[$authorization->type]) ?></td></tr>
                     <?php $type = $authorization->type; ?>
                 <?php endif; ?>
                 <tr>
-                    <td><?= $authorization->name ?></td>
+                    <td><?= __($authorization->name) ?></td>
                     <td class="text-center">
                         <?php $condition = false; if(!empty($roles_authorizations)) : ?>
                             <?php  
@@ -73,7 +73,7 @@ $types = array(1 => "Dashboard", 2 => "Réquisitions", 3 => "Catégories", 4 => 
         </table>
         <?= $this->Form->end() ?>
         <?php else: ?>
-            <p class="bg-info" style="padding:10px;text-align:center">Choisissez un rôle pour voir les autorisations</p>
+            <p class="bg-info" style="padding:10px;text-align:center"><?= __("Choisissez un rôle pour voir les autorisations") ?></p>
         <?php endif; ?>
             <!--End .article-->
         </div>

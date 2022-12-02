@@ -16,21 +16,21 @@
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Rôles</li>
+        <li class="active"><?= __("Rôles") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Rôles
-            <a class="btn btn-warning" style="float:right" href="<?= ROOT_DIREC ?>/roles/add">Ajouter</a>
+            <?= __("Rôles") ?>
+            <a class="btn btn-warning" style="float:right" href="<?= ROOT_DIREC ?>/roles/add"><?= __("Ajouter") ?></a>
         </div>
     <div class="panel-body articles-container">
         <div class="table-responsive">
             <table class="table table-stripped datatable">
                 <thead> 
-                    <th>Nom</th>
+                    <th><?= __("Nom") ?></th>
                     <th></th>
                 </thead>
             <tbody> 

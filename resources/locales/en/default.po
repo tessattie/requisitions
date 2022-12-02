@@ -1,0 +1,314 @@
+msgid "Log In"
+msgstr "Log In"
+
+msgid "Authentification"
+msgstr "Log In"
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Nom d'Utilisateur"
+msgstr "Username"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Mot de Passe"
+msgstr "Password"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Réquisitions"
+msgstr "Requisitions"
+
+msgid "Catégories"
+msgstr "Categories"
+
+msgid "Catégorie"
+msgstr "Category"
+
+msgid "Départements"
+msgstr "Departments"
+
+msgid "Département"
+msgstr "Department"
+
+msgid "Budgets"
+msgstr "Budjets"
+
+msgid "Paramètres"
+msgstr "Settings"
+
+msgid "Edition"
+msgstr "Edit"
+
+msgid "Rapport"
+msgstr "Report"
+
+msgid "Utilisateurs"
+msgstr "Users"
+
+msgid "Autorisations"
+msgstr "Authorizations"
+
+msgid "Rôles"
+msgstr "Roles"
+
+msgid "Rôle"
+msgstr "Role"
+
+msgid "Déconnexion"
+msgstr "Log Out"
+
+msgid "Profil"
+msgstr "Profile"
+
+msgid "Filtrer par Période"
+msgstr "Filter by Month"
+
+msgid "En attente"
+msgstr "Awaiting"
+
+msgid "En Révision"
+msgstr "Needs Revision"
+
+msgid "Validé"
+msgstr "Confirmed"
+
+msgid "Décaissé"
+msgstr "Disbursed"
+
+msgid "Refusé"
+msgstr "Refused"
+
+msgid "Retour"
+msgstr "Return"
+
+msgid "Titre"
+msgstr "Title"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Demandé Par"
+msgstr "Requested By"
+
+msgid "Montant Demandé"
+msgstr "Amount Requested"
+
+msgid "Montant Autorisé"
+msgstr "Amount Authorized"
+
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Créé le"
+msgstr "Created"
+
+msgid "Créé par"
+msgstr "Created By"
+
+msgid "Date Cible de Décaissement"
+msgstr "Target Payment Date"
+
+msgid "Ajouter une note..."
+msgstr "Add a note..."
+
+msgid "Ajoutez une pièce jointe ici"
+msgstr "Add a file here"
+
+msgid "Montant Autorisé"
+msgstr "MAmount Authorized"
+
+
+msgid "Pièce Jointe"
+msgstr "File"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Créé Par"
+msgstr "Created By"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Ajouter"
+msgstr "Add"
+
+msgid "Fermer"
+msgstr "Close"
+
+msgid "Valider"
+msgstr "Submit"
+
+msgid "Actif"
+msgstr "Active"
+
+msgid "Inactif"
+msgstr "Inactive"
+
+msgid "Tous"
+msgstr "All"
+
+msgid "Nouveau Rôle"
+msgstr "New Role"
+
+msgid "Sauvegarder"
+msgstr "Save"
+
+msgid "Editer"
+msgstr "Edit"
+
+msgid "Editer le Rôle"
+msgstr "Edit Role"
+
+msgid "Choisissez un rôle pour voir les autorisations"
+msgstr "Choose Roles to see Authorizations"
+
+
+msgid "Visualiser le dashboard"
+msgstr "See the Dashboard"
+
+msgid "Créer une réquisiton"
+msgstr "Create a new Requisition"
+
+msgid "Editer une réquisition"
+msgstr "Editar a requisition"
+
+msgid "Visualiser les réquisitions"
+msgstr "View Requisitions"
+
+msgid "Ajouter des notes pour les réquisitions"
+msgstr "Add Notes for Requisitions"
+
+msgid "Ajouter des pièces jointes aux réquisitions"
+msgstr "Add files for requisitions"
+
+msgid "Changer le statut d'une réquisition"
+msgstr "Change requisition status"
+
+msgid "Modifier une réquisition une fois qu'elle est validée"
+msgstr "Edit Requisitions after it has been validated"
+
+
+msgid "Visualiser les catégories"
+msgstr "View Categories"
+
+msgid "Créer / Editer une catégorie"
+msgstr "Create / Edit a category"
+
+msgid "Gérer les utilisateurs et les rôles"
+msgstr "Manage users and roles"
+
+msgid "Visualiser les départements"
+msgstr "View Departments"
+
+msgid "Créer / Editer un département"
+msgstr "Create / Edit a Department"
+
+msgid "Accéder aux budgets"
+msgstr "Manage Budjets"
+
+msgid "Visualiser les départements"
+msgstr "View Departments"
+
+msgid "Editer l'Utilisateur"
+msgstr "Edit User"
+
+msgid "Nouvel Utilisateur"
+msgstr "New User"
+
+msgid "Période"
+msgstr "Period"
+
+msgid "HTG"
+msgstr "SOL"
+
+msgid "Rapport des Budgets"
+msgstr "Budjet Report"
+
+msgid "Décaissements"
+msgstr "Disbursements"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Nouveau Département"
+msgstr "New Department"
+
+msgid "Editer le Département"
+msgstr "Edit Department"
+
+msgid "Répartition décaissements par Catégorie"
+msgstr "Disbursments by Category"
+
+msgid "Nouvelle Catégorie"
+msgstr "New Category"
+
+msgid "Editer la Catégorie"
+msgstr "Edit Category"
+
+msgid "Date Cible"
+msgstr "Target Date"
+
+msgid "Numéro de Réquisition"
+msgstr "Requisition Number"
+
+msgid "Nouvelle Réquisition"
+msgstr "New Requisition"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Point de Vente"
+msgstr "PLocation"
+
+msgid "Taux du Jour"
+msgstr "Daily Rate"
+
+msgid "Montant Demandé"
+msgstr "Amount Requested"
+
+msgid "Editer la Réquisition"
+msgstr "Edit Requisition"
+
+msgid "Pièces Jointes"
+msgstr "Files"
+
+msgid "Pièce Jointe"
+msgstr "File"
+
+msgid "Renouvellez votre Mot de Passe"
+msgstr "Reset your Password"
+
+msgid "Ancien Mot de Passe"
+msgstr "Old Password"
+
+msgid "Nouveau Mot de Passe"
+msgstr "New Password"
+
+msgid "Confirmez Nouveau Mot de Passe"
+msgstr "Confirm New Password"
+
+msgid "Langue"
+msgstr "Language"
+
+msgid "Français"
+msgstr "French"
+
+msgid "Espagnol"
+msgstr "Spanish"
+
+msgid "Anglais"
+msgstr "English"
+
+

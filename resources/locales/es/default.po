@@ -1,0 +1,318 @@
+msgid "Log In"
+msgstr "Acceso"
+
+msgid "Authentification"
+msgstr "Acceso"
+
+msgid "Username"
+msgstr "Nombre de Usuario"
+
+msgid "Nom"
+msgstr "Nombre"
+
+msgid "Nom d'Utilisateur"
+msgstr "Nombre de Usuario"
+
+msgid "Password"
+msgstr "Clave"
+
+msgid "Mot de Passe"
+msgstr "Clave"
+
+msgid "Dashboard"
+msgstr "Tablero"
+
+msgid "Réquisitions"
+msgstr "Requisiciones"
+
+msgid "Catégories"
+msgstr "Categorías"
+
+msgid "Catégorie"
+msgstr "Categoría"
+
+msgid "Départements"
+msgstr "Departamentos"
+
+msgid "Département"
+msgstr "Departamento"
+
+msgid "Budgets"
+msgstr "Presupuestos"
+
+msgid "Paramètres"
+msgstr "Configuraciones"
+
+msgid "Edition"
+msgstr "Edición"
+
+msgid "Rapport"
+msgstr "Informe"
+
+msgid "Utilisateurs"
+msgstr "Usuarios"
+
+msgid "Autorisations"
+msgstr "Permisos"
+
+msgid "Rôles"
+msgstr "Roles"
+
+msgid "Rôle"
+msgstr "Role"
+
+msgid "Déconnexion"
+msgstr "Cerrar sesión"
+
+msgid "Profil"
+msgstr "Perfil"
+
+msgid "Filtrer par Période"
+msgstr "Filtrar por Periodo"
+
+msgid "En attente"
+msgstr "A la Espera"
+
+msgid "En Révision"
+msgstr "En Revisión"
+
+msgid "Validé"
+msgstr "Válido"
+
+msgid "Décaissé"
+msgstr "Desembolsado"
+
+msgid "Refusé"
+msgstr "Rechazar"
+
+msgid "Retour"
+msgstr "Devolver"
+
+msgid "Titre"
+msgstr "Título"
+
+msgid "Location"
+msgstr "Ubicación"
+
+msgid "Demandé Par"
+msgstr "Preguntar por"
+
+msgid "Montant Demandé"
+msgstr "Monto Solicitada"
+
+msgid "Montant Autorisé"
+msgstr "Monto Autorizado"
+
+
+msgid "Statut"
+msgstr "Estado"
+
+msgid "Créé le"
+msgstr "Creó el"
+
+msgid "Créé par"
+msgstr "Creó para"
+
+msgid "Date Cible de Décaissement"
+msgstr "Fecha Objetivo de Desembolso"
+
+msgid "Ajouter une note..."
+msgstr "Agrega una nota..."
+
+msgid "Ajoutez une pièce jointe ici"
+msgstr "Añadir un archivo aquí"
+
+msgid "Montant Autorisé"
+msgstr "Monto Autorizado"
+
+
+msgid "Pièce Jointe"
+msgstr "Archivo"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Statut"
+msgstr "Estado"
+
+msgid "Créé Par"
+msgstr "Creó por"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Ajouter"
+msgstr "Agregar"
+
+msgid "Fermer"
+msgstr "Cancelar"
+
+msgid "Valider"
+msgstr "Validar"
+
+msgid "Actif"
+msgstr "Activo"
+
+msgid "Inactif"
+msgstr "Inactivo"
+
+msgid "Tous"
+msgstr "Todos"
+
+msgid "Nouveau Rôle"
+msgstr "Nuevo Role"
+
+msgid "Sauvegarder"
+msgstr "Salvar"
+
+msgid "Editer"
+msgstr "Editar"
+
+msgid "Editer le Rôle"
+msgstr "Editar Role"
+
+msgid "Choisissez un rôle pour voir les autorisations"
+msgstr "Elija un rol para ver los permisos"
+
+
+msgid "Visualiser le dashboard"
+msgstr "Ver el Tablero"
+
+msgid "Créer une réquisiton"
+msgstr "Crear una requisicion"
+
+msgid "Editer une réquisition"
+msgstr "Editar una requisicion"
+
+msgid "Visualiser les réquisitions"
+msgstr "Ver las requisiciones"
+
+msgid "Ajouter des notes pour les réquisitions"
+msgstr "Agregar notas para las requisiciones"
+
+msgid "Ajouter des pièces jointes aux réquisitions"
+msgstr "Agregar Archivos para las requisiciones"
+
+msgid "Changer le statut d'une réquisition"
+msgstr "Cambiar es estado de una requisicion"
+
+msgid "Modifier une réquisition une fois qu'elle est validée"
+msgstr "Editar una requisicion después de que se validado"
+
+
+msgid "Visualiser les catégories"
+msgstr "Ver las Categorías"
+
+msgid "Créer / Editer une catégorie"
+msgstr "Crear / Editar una Categoría"
+
+msgid "Gérer les utilisateurs et les rôles"
+msgstr "Administrar los Usarios y los Roles"
+
+msgid "Visualiser les départements"
+msgstr "Ver los Departamentos"
+
+msgid "Créer / Editer un département"
+msgstr "Crear / Editar un Departamento"
+
+msgid "Accéder aux budgets"
+msgstr "Administrar los Presupuestos"
+
+msgid "Visualiser les départements"
+msgstr "Ver los Departamentos"
+
+msgid "Editer l'Utilisateur"
+msgstr "Editar el Usario"
+
+msgid "Nouvel Utilisateur"
+msgstr "Nuevo Usario"
+
+msgid "Période"
+msgstr "Periodo"
+
+msgid "HTG"
+msgstr "SOL"
+
+msgid "Rapport des Budgets"
+msgstr "Informe de los Presupuestos"
+
+msgid "Décaissements"
+msgstr "Desembolsos"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Nouveau Département"
+msgstr "Nuevo Departamento"
+
+msgid "Editer le Département"
+msgstr "Editar Departamento"
+
+msgid "Répartition décaissements par Catégorie"
+msgstr "Desglose de desembolsos por categoría"
+
+msgid "Nouvelle Catégorie"
+msgstr "Nueva Categoría"
+
+msgid "Editer la Catégorie"
+msgstr "Editar Categoría"
+
+msgid "Date Cible"
+msgstr "Fecha Objetivo"
+
+msgid "Numéro de Réquisition"
+msgstr "Número Réquisition"
+
+msgid "Nouvelle Réquisition"
+msgstr "Nueva Requisicion"
+
+
+msgid "Numéro de Réquisition"
+msgstr "Numero de Requisicion"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Point de Vente"
+msgstr "Punto de Venta"
+
+msgid "Taux du Jour"
+msgstr "Tarifa Diaria"
+
+msgid "Montant Demandé"
+msgstr "Monto Solicitado"
+
+msgid "Editer la Réquisition"
+msgstr "Editar la Requisicion"
+
+msgid "Pièces Jointes"
+msgstr "Archivos"
+
+msgid "Pièce Jointe"
+msgstr "Archivo"
+
+msgid "Renouvellez votre Mot de Passe"
+msgstr "Restablecer su contraseña"
+
+msgid "Ancien Mot de Passe"
+msgstr "Contraseña Anterior"
+
+msgid "Nouveau Mot de Passe"
+msgstr "Nueva Contraseña"
+
+msgid "Confirmez Nouveau Mot de Passe"
+msgstr "Confirmar Nueva Contraseña"
+
+msgid "Langue"
+msgstr "Idioma"
+
+msgid "Français"
+msgstr "Francés"
+
+msgid "Espagnol"
+msgstr "Español"
+
+msgid "Anglais"
+msgstr "Inglés"
+
+

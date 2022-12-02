@@ -10,9 +10,9 @@
             <em class="fa fa-home"></em>
         </a></li>
         <li><a href="<?= ROOT_DIREC ?>/departments">
-            Departments
+            <?= __("Départements") ?>
         </a></li>
-        <li class="active">Ajouter</li>
+        <li class="active"><?= __("Ajouter") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
@@ -21,13 +21,13 @@
     <div class="col-md-8">
         <div class="panel panel-default articles">
         <div class="panel-heading">
-            Nouveau Département
-            <a class="btn btn-info" style="float:right" href="<?= ROOT_DIREC ?>/categories"><em class="fa fa-arrow-left"></em></a>
+            <?= __("Nouveau Département") ?>
+            <a class="btn btn-info" style="float:right" href="<?= ROOT_DIREC ?>/departments"><em class="fa fa-arrow-left"></em></a>
         </div>
     <div class="panel-body articles-container">       
             <?= $this->Form->create($department) ?>
                 <div class="row">
-                <div class="col-md-12"><?= $this->Form->control('name', array('class' => 'form-control', "label" => "Nom *", "placeholder" => "Nom")); ?></div>
+                <div class="col-md-12"><?= $this->Form->control('name', array('class' => 'form-control', "label" => __("Nom")." *", "placeholder" => __("Nom"))); ?></div>
                     
                 </div>
                 <div class="row">

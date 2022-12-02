@@ -21,14 +21,14 @@ $months = array("01" => "JAN",
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Budgets</li>
+        <li class="active"><?= __("Budgets") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Rapport des Budgets
+            <?= __("Rapport des Budgets") ?>
         </div>
     <div class="panel-body articles-container">
         <div class="table-responsive">
@@ -36,16 +36,14 @@ $months = array("01" => "JAN",
                 <thead> 
                     <tr>
                         <th colspan="2"></th>
-                        <th colspan="2" class="text-center">Budget</th>
-                        <th colspan="2" class="text-center">Décaissements</th>
+                        <th class="text-center"><?= __("Budgets") ?></th>
+                        <th class="text-center"><?= __("Décaissements") ?></th>
                     </tr>
                     <tr>
-                        <th>Département</th>
-                        <th class="text-center">Période</th>
-                        <th class="text-center">HTG</th>
-                        <th class="text-center">USD</th>
-                        <th class="text-center">HTG</th>
-                        <th class="text-center">USD</th>
+                        <th><?= __("Département") ?></th>
+                        <th class="text-center"><?= __("Période") ?></th>
+                        <th class="text-center"><?= __("HTG") ?></th>
+                        <th class="text-center"><?= __("HTG") ?></th>
                     </tr>
                     
                 </thead>
@@ -55,16 +53,12 @@ $months = array("01" => "JAN",
                     <td><?= $budjet->department->name ?></td>
                     <td class="text-center"><?= $budjet->month."/".$budjet->year ?></td>
                     <td class="text-center"><?= number_format($budjet->htg_amount, 2, ".", ",") ?></td>
-                    <td class="text-center"><?= number_format($budjet->usd_amount, 2, ".", ",") ?></td>
                     <td class="text-center"><?= number_format($budjet->total_htg, 2, ".", ",") ?></td>
-                    <td class="text-center"><?= number_format($budjet->total_usd, 2, ".", ",") ?></td>
                 </tr>
 
                 <?php 
                     $budjet_htg = $budjet_htg + $budjet->htg_amount; 
-                    $budjet_usd = $budjet_usd + $budjet->usd_amount; 
                     $total_htg = $total_htg + $budjet->total_htg; 
-                    $total_usd = $total_usd + $budjet->total_usd; 
                 ?>
             <?php endforeach; ?>
             </tbody>
@@ -72,9 +66,7 @@ $months = array("01" => "JAN",
                 <tr>
                     <th colspan="2">Total</th>
                     <th class="text-center"><?= number_format($budjet_htg, 2, ".", ",") ?></th>
-                    <th class="text-center"><?= number_format($budjet_usd, 2, ".", ",") ?></th>
                     <th class="text-center"><?= number_format($total_htg, 2, ".", ",") ?></th>
-                    <th class="text-center"><?= number_format($total_usd, 2, ".", ",") ?></th> 
                 </tr>
             </tfoot>
         </table>
@@ -110,7 +102,7 @@ echo '<script> var ROOT_DIREC = "'.ROOT_DIREC.'";</script>'
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Répartition décaissements par Catégorie : <?= $budjet->department->name ?> - <?= $budjet->month."/".$budjet->year ?>
+        <h3 class="modal-title" id="exampleModalLabel"><?= __("Répartition décaissements par Catégorie") ?> : <?= $budjet->department->name ?> - <?= $budjet->month."/".$budjet->year ?>
             
         </h3>
       </div>
@@ -120,9 +112,8 @@ echo '<script> var ROOT_DIREC = "'.ROOT_DIREC.'";</script>'
                 <table class="table table-bordered table-hover datatable">
                     <thead> 
                         <tr>
-                            <th>Catégorie</th>
-                            <th class="text-center">HTG</th>
-                            <th class="text-center">USD</th>
+                            <th><?= __("Catégorie") ?></th>
+                            <th class="text-center"><?= __("HTG") ?></th>
                         </tr>
                         
                     </thead>
@@ -131,7 +122,6 @@ echo '<script> var ROOT_DIREC = "'.ROOT_DIREC.'";</script>'
                     <tr> 
                         <td><?= $data['name'] ?></td>
                         <td class="text-center"><?= number_format($data['total_htg'], 2, ".", ",") ?></td>
-                        <td class="text-center"><?= number_format($data['total_usd'], 2, ".", ",") ?></td>
                     </tr>
 
                 <?php endforeach; ?>
@@ -146,7 +136,7 @@ echo '<script> var ROOT_DIREC = "'.ROOT_DIREC.'";</script>'
         <button type="button" class="btn btn-secondary" style="float: right;
     padding: 5px;
     background: orange;
-    color: white;" data-dismiss="modal">Fermer</button>
+    color: white;" data-dismiss="modal"><?= __("Fermer") ?></button>
 
     
       </div>

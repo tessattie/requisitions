@@ -26,22 +26,22 @@ $months = array("01" => "JAN",
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Budjets</li>
+        <li class="active"><?= __("Budgets") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Budjets
+            <?= __("Budgets") ?>
         </div>
     <div class="panel-body articles-container">
         <div class="table-responsive">
             <table class="table table-stripped datatable">
                 <thead> 
-                    <th>Département</th>
-                    <th class="text-center">Période</th>
-                    <th class="text-right">HTG</th>
+                    <th><?= __("Département") ?></th>
+                    <th class="text-center"><?= __("Période") ?></th>
+                    <th class="text-right"><?= __("HTG") ?></th>
                 </thead>
             <tbody> 
             <?php foreach($budjets as $budjet) : ?>

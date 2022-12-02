@@ -3,7 +3,7 @@
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Dashboard</li>
+        <li class="active"><?= __('Dashboard') ?></li>
     </ol>
 </div>
 <div class="container-fluid">
@@ -19,7 +19,7 @@
 	<?php foreach($requisition_status as $key => $status) : ?>
 			<div class="list">
 
-		<h3 class="list-title" style="padding:0px 1rem;margin-top:10px"><?= $status ?></h3>
+		<h3 class="list-title" style="padding:0px 1rem;margin-top:10px"><?= __($status) ?></h3>
 
 		<ul class="list-items">
 			<?php foreach($requisitions as $requisition) : ?>
@@ -104,15 +104,15 @@
                 <tr>
                     <th><?= __('Statut') ?></th>
                     <?php if($requisition->status == 1) : ?>
-                        <td class="text-right"><span class="label label-info"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-info"> <?= __($requisition_status[$requisition->status]) ?></span></td>
                     <?php elseif($requisition->status == 2) : ?>
-                        <td class="text-right"><span class="label label-danger"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-danger"> <?= __($requisition_status[$requisition->status]) ?></span></td>
                     <?php elseif($requisition->status == 3) : ?>
-                        <td class="text-right"><span class="label label-primary"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-primary"> <?= __($requisition_status[$requisition->status]) ?></span></td>
                     <?php elseif($requisition->status == 4) : ?>
-                        <td class="text-right"><span class="label label-success"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-success"> <?= __($requisition_status[$requisition->status]) ?></span></td>
                     <?php else : ?>
-                        <td class="text-right"><span class="label label-warning"> <?= $requisition_status[$requisition->status] ?></span></td>
+                        <td class="text-right"><span class="label label-warning"> <?= __($requisition_status[$requisition->status]) ?></span></td>
                     <?php endif; ?>
                 </tr>
                 <tr>
@@ -151,7 +151,7 @@
       			<?php if($auths[72]) : ?> 
       			<div class="row">
       				<div class="col-md-12">
-      					<?= $this->Form->control('status', array('class' => 'form-control', "empty" => "-- Statut --",  "label" => 'Statut', 'options' => $requisition_status, 'value' => $requisition->status)); ?>
+      					<?= $this->Form->control('status', array('class' => 'form-control', "empty" => "-- ".__("Statut")." --",  "label" => __('Statut'), 'options' => $requisition_status, 'value' => $requisition->status)); ?>
       				</div>
       			</div>
       			<hr>
@@ -159,7 +159,7 @@
       		<?php if($auths[64]) : ?> 
       			<div class="row">
       				<div class="col-md-12">
-      					<?= $this->Form->control('amount_authorized', array('class' => 'form-control', "label" => "Montant Autorisé", "placeholder" => "Montant Autorisé", 'value' => $requisition->amount_authorized)); ?>
+      					<?= $this->Form->control('amount_authorized', array('class' => 'form-control', "label" => __("Montant Autorisé"), "placeholder" => __("Montant Autorisé"), 'value' => $requisition->amount_authorized)); ?>
       				</div>
       			</div>
       		
@@ -170,19 +170,19 @@
       				<div class="col-md-12">
       					 <?= $this->Form->control('requisition_id', array('type' => 'hidden', "value" => $requisition->id)); ?>
                           <div class="form-group">
-                            <label for="exampleInputFile">Pièce Jointe</label>
+                            <label for="exampleInputFile"><?= __("Pièce Jointe") ?></label>
                             <input type="file" id="requisition_document" name="attachment">
-                            <p class="help-block">Ajoutez une pièce jointe ici</p>
+                            <p class="help-block"><?= __("Ajoutez une pièce jointe ici") ?></p>
                           </div>
       				</div>
       			</div>
       			<hr>
       		<?php endif; ?>
-      			<h4>Notes</h4>
+      			<h4><?= __("Notes") ?></h4>
 				<?php if($auths[69]) : ?> 
       			<div class="row">
       				<div class="col-md-12">
-      					<input type="text" name="comment" placeholder="Ajouter une note..." class="form-control" style="margin-bottom:10px">
+      					<input type="text" name="comment" placeholder="<?= __("Ajouter une note...") ?>" class="form-control" style="margin-bottom:10px">
       				</div>
       			</div>
       			<?php 	endif; ?>
@@ -191,8 +191,8 @@
       			<?php foreach($requisition->notes as $n) : ?>
       				
       						<p class="bg-info" style="padding:10px">
-                            <label>Créé Par :</label> <?= $n->user->name ?><br>
-                            <label >Date :</label> <?= date("M d Y H:i", strtotime($n->created)) ?><br>
+                            <label><?= __("Créé Par") ?> :</label> <?= $n->user->name ?><br>
+                            <label ><?= __("Date") ?> :</label> <?= date("M d Y H:i", strtotime($n->created)) ?><br>
                             <?= $n->description ?>
                         </p>
       					
@@ -209,12 +209,12 @@
       	<button type="submit" class="btn btn-secondary" style="float: right;
     padding: 5px;
     background: green;
-    color: white;margin-left:5px">Valider</button>
+    color: white;margin-left:5px"><?= __("Valider") ?></button>
 <?php 	endif; ?>
         <button type="button" class="btn btn-secondary" style="float: right;
     padding: 5px;
     background: orange;
-    color: white;" data-dismiss="modal">Fermer</button>
+    color: white;" data-dismiss="modal"><?= __("Fermer") ?></button>
 
     
       </div>

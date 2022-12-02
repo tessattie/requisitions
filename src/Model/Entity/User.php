@@ -46,7 +46,8 @@ class User extends Entity
         'role' => true,
         'documents' => true,
         'notes' => true,
-        'user_id' => true
+        'user_id' => true, 
+        'language' => true
     ];
 
     /**

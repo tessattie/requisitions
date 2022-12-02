@@ -6,15 +6,15 @@
                     'style' => "width:400px",
                     "alt" => "Loto Logo",
                 ]); ?>
-			<div class="panel-heading">Log In</div>
+			<div class="panel-heading"><?= __("Authentification") ?></div>
 			<div class="panel-body">
 
 				<?= $this->Form->create() ?>
 						<div class="form-group">
-							<?= $this->Form->control("username", array('label' => false, "class" => "form-control loginForm", "placeholder" => "Username")) ?>
+							<?= $this->Form->control("username", array('label' => false, "class" => "form-control loginForm", "placeholder" => __("Nom d'Utilisateur"))) ?>
 						</div>
 						<div class="form-group">
-							<?= $this->Form->control("password", array('label' => false, "class" => "form-control loginForm", "placeholder" => "Password")) ?>
+							<?= $this->Form->control("password", array('label' => false, "class" => "form-control loginForm", "placeholder" => __("Mot de Passe"))) ?>
 						</div>
 						
                 		<?= $this->Form->button("Log In", array('class' => "btn btn-success loginForm", 'style' => "background:#ff6600;border:none")) ?>

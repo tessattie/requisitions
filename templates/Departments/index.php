@@ -9,23 +9,23 @@
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Départements</li>
+        <li class="active"><?= __("Départements") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Départements
+            <?= __("Départements") ?>
             <?php if($auths[68]) : ?>
-            <a class="btn btn-warning" style="float:right" href="<?= ROOT_DIREC ?>/departments/add">Ajouter</a>
+            <a class="btn btn-warning" style="float:right" href="<?= ROOT_DIREC ?>/departments/add"><?= __("Ajouter") ?></a>
             <?php endif; ?>
         </div>
     <div class="panel-body articles-container">
         <div class="table-responsive">
             <table class="table table-stripped datatable">
                 <thead> 
-                    <th>Nom</th>
+                    <th><?= __("Nom") ?></th>
                     <?php if($auths[75]) : ?>
                     <th></th>
                 <?php   endif; ?>

@@ -11,51 +11,51 @@
             <em class="fa fa-home"></em>
         </a></li>
         <li><a href="<?= ROOT_DIREC ?>/requisitions">
-            Réquisitions
+            <?= __("Réquisitions") ?>
         </a></li>
-        <li class="active">Ajouter</li>
+        <li class="active"><?= __("Ajouter") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Nouvelle Réquisition
+            <?= __("Nouvelle Réquisition") ?>
             <a class="btn btn-info" style="float:right" href="<?= ROOT_DIREC ?>/requisitions"><em class="fa fa-arrow-left"></em></a>
         </div>
     <div class="panel-body articles-container">       
             <?= $this->Form->create($requisition) ?>
                 <div class="row">
-                    <div class="col-md-3"><?= $this->Form->control('requisition_number', array('class' => 'form-control', "label" => "Numéro de Réquisition *", "placeholder" => "Numéro de Réquisition")); ?>
+                    <div class="col-md-3"><?= $this->Form->control('requisition_number', array('class' => 'form-control', "label" => __("Numéro de Réquisition")." *", "placeholder" => __("Numéro de Réquisition"))); ?>
                     </div>
-                    <div class="col-md-3"><?= $this->Form->control('category_id', array('class' => 'form-control', "empty" => "-- Catégorie --", "label" => "Catégorie *", 'options' => $categories)); ?>
+                    <div class="col-md-3"><?= $this->Form->control('category_id', array('class' => 'form-control', "empty" => "-- ".__("Catégorie")." --", "label" => __("Catégorie")." *", 'options' => $categories)); ?>
                     </div> 
-                    <div class="col-md-3"><?= $this->Form->control('department_id', array('class' => 'form-control', "empty" => "-- Tous --", 'options' => $departments, "label" => "Département *", "multiple" => false, 'required' => true, 'style' => "height:46px")); ?></div>
-                    <div class="col-md-3"><?= $this->Form->control('title', array('class' => 'form-control', "label" => "Titre *", "placeholder" => "Titre")); ?>
+                    <div class="col-md-3"><?= $this->Form->control('department_id', array('class' => 'form-control', "empty" => "-- ".__("Département")." --", 'options' => $departments, "label" => __("Département")." *", "multiple" => false, 'required' => true, 'style' => "height:46px")); ?></div>
+                    <div class="col-md-3"><?= $this->Form->control('title', array('class' => 'form-control', "label" => __("Titre")." *", "placeholder" => __("Titre"))); ?>
                     </div>
                                      
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-12"><?= $this->Form->control('description', array('class' => 'form-control', "label" => "Description *", "placeholder" => "Description")); ?>
+                    <div class="col-md-12"><?= $this->Form->control('description', array('class' => 'form-control', "label" => __("Description")." *", "placeholder" => __("Description"))); ?>
                     </div>
                                      
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-4"><?= $this->Form->control('location', array('class' => 'form-control', "label" => "Point de Vente", "placeholder" => "Point de Vente")); ?>
+                    <div class="col-md-4"><?= $this->Form->control('location', array('class' => 'form-control', "label" => __("Point de Vente"), "placeholder" => __("Point de Vente"))); ?>
                     </div>
-                    <div class="col-md-4"><?= $this->Form->control('full_name', array('class' => 'form-control', "placeholder" => "Demandé Par", "label" => "Demandé Par *")); ?>
+                    <div class="col-md-4"><?= $this->Form->control('full_name', array('class' => 'form-control', "placeholder" => __("Demandé Par"), "label" => __("Demandé Par")." *")); ?>
                     </div> 
-                    <div class="col-md-3"><?= $this->Form->control('amount_requested', array('class' => 'form-control', "label" => "Montant Demandé *", "placeholder" => "Montant Demandé")); ?>
+                    <div class="col-md-3"><?= $this->Form->control('amount_requested', array('class' => 'form-control', "label" => __("Montant Demandé")." *", "placeholder" => __("Montant Demandé"))); ?>
                     </div>
                     <div class="col-md-1"><?= $this->Form->control('rate', array('class' => 'form-control',  "label" => ' ', 'options' => $rates, "style" => "margin-top:4px")); ?>
                     </div>                  
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-4"><?= $this->Form->control('due_date', array('class' => 'form-control', "label" => "Date Cible de Décaissement *", "type" => "date")); ?></div>
-                    <div class="col-md-3"><?= $this->Form->control('daily_rate', array('class' => 'form-control', "label" => "Taux du Jour *", "placeholder" => "Taux du Jour")); ?>
+                    <div class="col-md-4"><?= $this->Form->control('due_date', array('class' => 'form-control', "label" => __("Date Cible de Décaissement")." *", "type" => "date")); ?></div>
+                    <div class="col-md-3"><?= $this->Form->control('daily_rate', array('class' => 'form-control', "label" => __("Taux du Jour")." *", "placeholder" => __("Taux du Jour"))); ?>
                     </div>
                                      
                 </div>
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <?php  if($auths[76]) : ?>
-                        <label id="department_name"> Department</label> <small style="color:#30a5ff;font-weight:bold;float:right">HTG: <span id="percent_htg">0</span>%</small><br>
+                        <label id="department_name"> <?= __("Département") ?></label> <small style="color:#30a5ff;font-weight:bold;float:right"><?= __("HTG") ?> : <span id="percent_htg">0</span>%</small><br>
                         <div class="progress" style="height:20px">
                           <div class="progress-bar" style="width: 0%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar_htg"><small id="bvalues_htg"></small></div>
                         </div>

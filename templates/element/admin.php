@@ -34,11 +34,11 @@ $months = array("01" => "JAN",
                     </a>
                         <ul class="dropdown-menu dropdown-messages">
                             <li>
-                                <a href="<?= ROOT_DIREC ?>/users/view"><span class="fa fa-user">&nbsp;</span> Profil</a>
+                                <a href="<?= ROOT_DIREC ?>/users/view"><span class="fa fa-user">&nbsp;</span> <?= __('Profil') ?></a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?= ROOT_DIREC ?>/users/logout"><span class="fa fa-power-off">&nbsp;</span> Déconnexion</a>
+                                <a href="<?= ROOT_DIREC ?>/users/logout"><span class="fa fa-power-off">&nbsp;</span> <?= __('Déconnexion') ?> </a>
                             </li>
                         </ul>
                     </li>
@@ -49,7 +49,7 @@ $months = array("01" => "JAN",
                     
                         <ul class="dropdown-menu dropdown-messages">
                              <?= $this->Form->create(null, array("url" => "/app/update_session_variables")) ?>
-                            <li style="padding-right:10px;padding-left:10px;padding-top:10px"><strong>Filtrer par Période</strong></li>
+                            <li style="padding-right:10px;padding-left:10px;padding-top:10px"><strong><?= __("Filtrer par Période") ?></strong></li>
                             <li class="divider"></li>
                             <li style="padding-right:10px;padding-left:10px">
                                 <?= $this->Form->control('periode_month', array('class' => 'form-control', 'options' => $months, "label" => false, 'style' => "", 'empty' => "-- Mois --", "value" => $periode_month)); ?>
@@ -99,32 +99,32 @@ $months = array("01" => "JAN",
 
         <ul class="nav menu" style="margin-top:0px">
             <?php  if($auths[66]) : ?>
-                <li class="<?= ($this->request->getParam('controller') == 'Requisitions' && ($this->request->getParam('action') == 'dashboard')) ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/requisitions/dashboard"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+                <li class="<?= ($this->request->getParam('controller') == 'Requisitions' && ($this->request->getParam('action') == 'dashboard')) ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/requisitions/dashboard"><em class="fa fa-dashboard">&nbsp;</em><?= __('Dashboard') ?> </a></li>
             <?php endif; ?>
 
             <?php  if($auths[63] || $auths[64] || $auths[65] || $auths[69] || $auths[70] || $auths[72] || $auths[73]) : ?>
-                <li class="<?= ($this->request->getParam('controller') == 'Requisitions'&& ($this->request->getParam('action') != 'dashboard')) ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/requisitions"><em class="fa fa-file">&nbsp;</em> Réquisitions</a></li>
+                <li class="<?= ($this->request->getParam('controller') == 'Requisitions'&& ($this->request->getParam('action') != 'dashboard')) ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/requisitions"><em class="fa fa-file">&nbsp;</em> <?= __('Réquisitions') ?></a></li>
             <?php endif; ?>
 
             <?php  if($auths[67] || $auths[68]) : ?>
-            <li class="<?= ($this->request->getParam('controller') == 'Categories') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/categories"><em class="fa fa-bars">&nbsp;</em> Catégories</a></li>
+            <li class="<?= ($this->request->getParam('controller') == 'Categories') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/categories"><em class="fa fa-bars">&nbsp;</em> <?= __('Catégories') ?></a></li>
             <?php endif; ?>
 
             <?php  if($auths[74] || $auths[75]) : ?>
-            <li class="<?= ($this->request->getParam('controller') == 'Departments') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/departments"><em class="fa fa-list">&nbsp;</em> Départements</a></li>
+            <li class="<?= ($this->request->getParam('controller') == 'Departments') ? 'active' : '' ?>"><a href="<?= ROOT_DIREC ?>/departments"><em class="fa fa-list">&nbsp;</em><?= __('Départements') ?> </a></li>
             <?php endif; ?>
 
             <?php if($auths[76]) : ?>
             <li class="parent <?= ($this->request->getParam('controller') == 'Budjets' ) ? 'active' : '' ?>"><a data-toggle="collapse" href="#sub-item-2222">
-                <em class="fa fa-dollar">&nbsp;</em> Budgets <span data-toggle="collapse" href="#sub-item-2222" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-dollar">&nbsp;</em><?= __('Budgets') ?>  <span data-toggle="collapse" href="#sub-item-2222" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-2222">
 
                         <li class="<?= ($this->request->getParam('controller') == 'Budjets' && $this->request->getParam('action') == 'index') ? 'active' : '' ?>"><a class=""  href="<?= ROOT_DIREC ?>/budjets">
-                            <span class="fa fa-arrow-right">&nbsp;</span> Edition
+                            <span class="fa fa-arrow-right">&nbsp;</span><?= __('Edition') ?> 
                         </a></li>
                         <li class="<?= ($this->request->getParam('controller') == 'Budjets' && $this->request->getParam('action') == 'report') ? 'active' : '' ?>"><a class=""  href="<?= ROOT_DIREC ?>/budjets/report">
-                            <span class="fa fa-arrow-right">&nbsp;</span> Rapport
+                            <span class="fa fa-arrow-right">&nbsp;</span><?= __('Rapport') ?> 
                         </a></li>
 
                 </ul>
@@ -133,25 +133,25 @@ $months = array("01" => "JAN",
 
             <?php if($auths[71]) : ?>
             <li class="parent <?= ($this->request->getParam('controller') == 'Riders' ||$this->request->getParam('controller') == 'Authorizations' || $this->request->getParam('controller') == 'Users' || $this->request->getParam('controller') == 'Roles' || $this->request->getParam('controller') == 'Cards') ? 'active' : '' ?>"><a data-toggle="collapse" href="#sub-item-2">
-                <em class="fa fa-gear">&nbsp;</em> Paramètres <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-gear">&nbsp;</em><?= __('Paramètres') ?>  <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-2">
 
                         <li class="<?= ($this->request->getParam('controller') == 'Users' && $this->request->getParam('action') == 'index') ? 'active' : '' ?>"><a class=""  href="<?= ROOT_DIREC ?>/users">
-                            <span class="fa fa-arrow-right">&nbsp;</span> Utilisateurs
+                            <span class="fa fa-arrow-right">&nbsp;</span><?= __('Utilisateurs') ?> 
                         </a></li>
                         <li class="<?= ($this->request->getParam('controller') == 'Authorizations') ? 'active' : '' ?>"><a class=""  href="<?= ROOT_DIREC ?>/authorizations">
-                            <span class="fa fa-arrow-right">&nbsp;</span> Autorisations
+                            <span class="fa fa-arrow-right">&nbsp;</span><?= __('Autorisations') ?> 
                         </a></li>
 
                         <li class="<?= ($this->request->getParam('controller') == 'Roles') ? 'active' : '' ?>"><a class=""  href="<?= ROOT_DIREC ?>/roles">
-                            <span class="fa fa-arrow-right">&nbsp;</span> Rôles
+                            <span class="fa fa-arrow-right">&nbsp;</span><?= __('Rôles') ?> 
                         </a></li>
 
                 </ul>
             </li>
         <?php   endif; ?>
-            <li><a  href="<?= ROOT_DIREC ?>/users/logout" style="color:red"><em class="fa fa-power-off">&nbsp;</em> Log Out</a></li>
+            <li><a  href="<?= ROOT_DIREC ?>/users/logout" style="color:red"><em class="fa fa-power-off">&nbsp;</em> <?= __('Déconnexion') ?></a></li>
         </ul>
 
     </div><!--/.sidebar-->

@@ -9,25 +9,25 @@
         <li><a href="<?= ROOT_DIREC ?>/requisitions/dashboard">
             <em class="fa fa-home"></em>
         </a></li>
-        <li class="active">Utilisateurs</li>
+        <li class="active"><?= __("Utilisateurs") ?></li>
     </ol>
 </div>
 <?= $this->Flash->render() ?>
 <div class="container-fluid"> 
     <div class="panel panel-default articles">
         <div class="panel-heading">
-            Utilisateurs
-            <a href="<?= ROOT_DIREC ?>/users/add" style="float:right"><button class="btn btn-warning">Ajouter</button></a>
+            <?= __("Utilisateurs") ?>
+            <a href="<?= ROOT_DIREC ?>/users/add" style="float:right"><button class="btn btn-warning"><?= __("Ajouter") ?></button></a>
         </div>
     <div class="panel-body articles-container">
         <div class="table-responsive">
             <table class="table table-stripped datatable">
                 <thead> 
-                    <th>Nom</th>
-                    <th class="text-center">Nom d'Utilisateur</th>
-                    <th class="text-center">Rôle</th>
-                    <th class="text-center">Département</th>
-                    <th class="text-center">Statut</th>
+                    <th><?= __("Nom") ?></th>
+                    <th class="text-center"><?= __("Nom d'Utilisateur") ?></th>
+                    <th class="text-center"><?= __("Rôle") ?></th>
+                    <th class="text-center"><?= __("Département") ?></th>
+                    <th class="text-center"><?= __("Statut") ?></th>
                     <th class="text-center"></th>
                 </thead>
             <tbody> 
@@ -39,12 +39,12 @@
                     <?php if(!empty($user->department_id)) : ?>
                         <td class="text-center"><?= $user->department->name ?></td>
                     <?php else : ?>
-                        <td class="text-center">Tous</td>
+                        <td class="text-center"><?= __("Tous") ?></td>
                     <?php endif; ?>
                     <?php if($user->status == 1) : ?>
-                        <td class="text-center">  <span class="label label-success"> <?= $status[$user->status] ?></span></td>
+                        <td class="text-center">  <span class="label label-success"> <?= __($status[$user->status]) ?></span></td>
                     <?php else : ?>
-                        <td class="text-center">  <span class="label label-danger"> <?= $status[$user->status] ?></span></td>
+                        <td class="text-center">  <span class="label label-danger"> <?= __($status[$user->status]) ?></span></td>
                     <?php endif; ?>
                     <td class="text-right"><a href="<?= ROOT_DIREC ?>/users/edit/<?= $user->id ?>" style="font-size:1.3em!important;"><span class="fa fa-xl fa-pencil color-blue"></span></a>
                     <a href="<?= ROOT_DIREC ?>/users/delete/<?= $user->id ?>" style="font-size:1.3em!important;margin-left:5px"><span class="fa fa-xl fa-trash color-red"></span></a>
